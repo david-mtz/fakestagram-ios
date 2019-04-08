@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		63FEFAB7225AE84C008B830F /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FEFAB6225AE84C008B830F /* UIView.swift */; };
 		E04FB2DC2249F2AB00B81C8A /* CodableStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04FB2DB2249F2AB00B81C8A /* CodableStore.swift */; };
 		E04FB2DE2249F2D300B81C8A /* StorageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04FB2DD2249F2D300B81C8A /* StorageType.swift */; };
 		E04FB2E02249F42A00B81C8A /* ItemStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04FB2DF2249F42A00B81C8A /* ItemStorage.swift */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		63FEFAB6225AE84C008B830F /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		E04FB2DB2249F2AB00B81C8A /* CodableStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableStore.swift; sourceTree = "<group>"; };
 		E04FB2DD2249F2D300B81C8A /* StorageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageType.swift; sourceTree = "<group>"; };
 		E04FB2DF2249F42A00B81C8A /* ItemStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStorage.swift; sourceTree = "<group>"; };
@@ -104,6 +106,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		63FEFAB5225AE82C008B830F /* UIUtils */ = {
+			isa = PBXGroup;
+			children = (
+				63FEFAB6225AE84C008B830F /* UIView.swift */,
+			);
+			path = UIUtils;
+			sourceTree = "<group>";
+		};
 		E04FB2D72249F1E600B81C8A /* Storages */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +174,7 @@
 		E0DDF9EF223DF640009EB136 /* fakestagram */ = {
 			isa = PBXGroup;
 			children = (
+				63FEFAB5225AE82C008B830F /* UIUtils */,
 				E0BB974B223F45DE00D028A1 /* Account */,
 				E0DDFA16223DFCB6009EB136 /* Post */,
 				E0DDFA2C223E0EDB009EB136 /* Timeline */,
@@ -341,6 +352,7 @@
 				E04FB2DC2249F2AB00B81C8A /* CodableStore.swift in Sources */,
 				E0BCD23B22489E2300B4E0F6 /* HttpResponse.swift in Sources */,
 				E0DDFA31223E181C009EB136 /* PostDetailViewController.swift in Sources */,
+				63FEFAB7225AE84C008B830F /* UIView.swift in Sources */,
 				E0BB974D223F45EA00D028A1 /* Account.swift in Sources */,
 				E0BCD23D2248A14300B4E0F6 /* RestClient.swift in Sources */,
 				E04FB2E02249F42A00B81C8A /* ItemStorage.swift in Sources */,

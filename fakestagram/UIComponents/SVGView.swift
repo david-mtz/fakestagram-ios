@@ -22,6 +22,22 @@ class SVGView: UIView {
         setupView()
     }
     
-    func setupView() {
+    private func setupView() {
+        addSubview(image)
+        image.anchor(top: topAnchor, leading: leadingAnchor, trailing: trailingAnchor, bottom: bottomAnchor)
     }
+    
+    func setImage(urlString: String) {
+        guard let url = URL(string: urlString) else {
+            print("Error: cannot create URL")
+            return
+        }
+        guard let stringSVG = try? String(contentsOf: url) else {
+            print("Error: The server doesn't give data")
+            return
+        }
+        image.loadHTMLString(stringSVG, baseURL: nil)
+    }
+    
+    
 }
