@@ -9,9 +9,9 @@
 import Foundation
 
 struct Post: Codable {
-    let id: String?
+    let id: Int?
     let title: String
-    let imageURL: String?
+    let imageUrl: String?
     let author: Author?
     let likesCount: Int
     let commentsCount: Int

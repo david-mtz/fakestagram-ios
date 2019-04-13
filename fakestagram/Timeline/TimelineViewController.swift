@@ -8,16 +8,37 @@
 
 import UIKit
 
-class TimelineViewController: UIViewController, UICollectionViewDelegate {
+class TimelineViewController: UIViewController {
     @IBOutlet weak var postsCollectionView: UICollectionView!
     
+    let identifierCell = "postViewCell"
+    
+    var listPost: [Post] = [Post]() {
+        didSet {
+            updateCollection()
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         postsCollectionView.delegate = self
-
+        postsCollectionView.dataSource = self
+        postsCollectionView.register(UINib(nibName: "PostCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: identifierCell)
+        PostRepo().get(success: {(listPost) in
+            self.listPost = listPost
+        })
+        
+        
         // Do any additional setup after loading the view.
     }
     
+    
+
+    
+    
+    func updateCollection() {
+        postsCollectionView.reloadData()
+    }
 
     /*
     // MARK: - Navigation
@@ -29,4 +50,31 @@ class TimelineViewController: UIViewController, UICollectionViewDelegate {
     }
     */
 
+}
+
+extension TimelineViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return listPost.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifierCell, for: indexPath) as! PostCollectionViewCell
+        
+        cell.post = listPost[indexPath.row]
+        
+        // Configure the cel
+        return cell
+
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        //return image.size
+        return CGSize(width: self.postsCollectionView.frame.width, height: 510)
+    }
+
+    
 }

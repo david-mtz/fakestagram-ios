@@ -10,7 +10,13 @@ import UIKit
 
 @IBDesignable
 class PostAuthorView: UIView {
-    var author: Author!
+    
+    public var author: Author? {
+        didSet {
+            updateContent()
+        }
+    }
+    
     let avatarView: SVGView = SVGView()
     let label: UILabel = {
         let label = UILabel()
@@ -40,6 +46,11 @@ class PostAuthorView: UIView {
         addSubview(label)
         label.anchor(top: topAnchor, leading: avatarView.trailingAnchor, trailing: trailingAnchor, bottom: bottomAnchor, padding: UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0))
         
-        
+    }
+    
+    func updateContent() {
+        label.text
+        = author?.name
+        //avatarView.setImage(urlString: author?.avatarURL())
     }
 }

@@ -7,12 +7,14 @@
 //
 
 import Foundation
+import UIKit
 
 class AccountRepo {
     static let shared = AccountRepo()
     let restClient = RestClient<Account>(client: Client(), path: "/api/accounts")
     
     typealias accountResponse = (Account) -> Void
+    
     func loadOrCreate(success: accountResponse?) {
         if let account = load() {
             success?(account)
@@ -22,12 +24,21 @@ class AccountRepo {
         create(newAccount) { account in
             AccountStorage.shared.item = account
             AccountStorage.shared.save()
+            Account.saveInStorage(account: account)
             success?(account)
         }
     }
 
     func load() -> Account? {
+        
+        if let account = Account.loadFromStorage() {
+            AccountStorage.shared.item = account
+            AccountStorage.shared.save()
+            return account
+        }
+        
         return AccountStorage.shared.item
+        
     }
     
     func create(_ account: Account, success: @escaping (Account) -> Void) {

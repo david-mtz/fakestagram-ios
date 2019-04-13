@@ -26,7 +26,7 @@
                             <constraint firstAttribute="height" constant="64" id="doV-8f-0Xf"/>
                         </constraints>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B7R-9H-BNz">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B7R-9H-BNz">
                         <rect key="frame" x="0.0" y="74" width="355" height="355"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="B7R-9H-BNz" secondAttribute="height" multiplier="1:1" id="y3W-Xh-VPN"/>
@@ -90,6 +90,13 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="349" height="567"/>
+            <connections>
+                <outlet property="countCommentsLabel" destination="00E-Fs-pbe" id="ouc-rZ-vMI"/>
+                <outlet property="countLikesLabel" destination="lfa-mc-RD9" id="QEP-Qx-MRl"/>
+                <outlet property="imageV" destination="B7R-9H-BNz" id="FLa-Xl-Wcf"/>
+                <outlet property="postAuthorV" destination="Sni-u6-baQ" id="vHd-Xj-3mI"/>
+                <outlet property="titleLabel" destination="UCK-8L-B25" id="JDI-SC-QfP"/>
+            </connections>
             <point key="canvasLocation" x="375.19999999999999" y="385.90704647676165"/>
         </collectionViewCell>
     </objects>

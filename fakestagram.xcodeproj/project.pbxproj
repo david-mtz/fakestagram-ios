@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08A15F902262380600210806 /* PostRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A15F8F2262380600210806 /* PostRepo.swift */; };
+		08D678672262301B00BE28AE /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D678662262301B00BE28AE /* UIImageView.swift */; };
 		63FEFAB7225AE84C008B830F /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FEFAB6225AE84C008B830F /* UIView.swift */; };
 		E04FB2DC2249F2AB00B81C8A /* CodableStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04FB2DB2249F2AB00B81C8A /* CodableStore.swift */; };
 		E04FB2DE2249F2D300B81C8A /* StorageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04FB2DD2249F2D300B81C8A /* StorageType.swift */; };
@@ -51,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		08A15F8F2262380600210806 /* PostRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRepo.swift; sourceTree = "<group>"; };
+		08D678662262301B00BE28AE /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		63FEFAB6225AE84C008B830F /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		E04FB2DB2249F2AB00B81C8A /* CodableStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableStore.swift; sourceTree = "<group>"; };
 		E04FB2DD2249F2D300B81C8A /* StorageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageType.swift; sourceTree = "<group>"; };
@@ -110,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				63FEFAB6225AE84C008B830F /* UIView.swift */,
+				08D678662262301B00BE28AE /* UIImageView.swift */,
 			);
 			path = UIUtils;
 			sourceTree = "<group>";
@@ -215,6 +220,7 @@
 				E0DDFA28223E03DC009EB136 /* Author.swift */,
 				E0DDFA2F223E181C009EB136 /* PostDetailViewController.swift */,
 				E0DDFA30223E181C009EB136 /* PostDetailViewController.xib */,
+				08A15F8F2262380600210806 /* PostRepo.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -342,6 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0DDFA29223E03DC009EB136 /* Author.swift in Sources */,
+				08D678672262301B00BE28AE /* UIImageView.swift in Sources */,
 				E0DDFA2B223E04A3009EB136 /* Identicon.swift in Sources */,
 				E0BB974F223F552B00D028A1 /* UIDevice+Info.swift in Sources */,
 				E0BCD23922489DFB00B4E0F6 /* Status.swift in Sources */,
@@ -361,6 +368,7 @@
 				E0BB9755223F5EDA00D028A1 /* Name.swift in Sources */,
 				E0DDF9F1223DF640009EB136 /* AppDelegate.swift in Sources */,
 				E0BB9748223F444B00D028A1 /* Client.swift in Sources */,
+				08A15F902262380600210806 /* PostRepo.swift in Sources */,
 				E0DDFA27223E029A009EB136 /* PostAuthorView.swift in Sources */,
 				E0BB9751223F57C400D028A1 /* Date+timestamp.swift in Sources */,
 				E0BB974A223F449700D028A1 /* Secrets.swift in Sources */,

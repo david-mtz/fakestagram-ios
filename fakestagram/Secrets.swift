@@ -11,13 +11,17 @@ import Foundation
 enum Secrets {
     case host
     case uuid
+    case nameUser
     
     var value: String? {
         switch self {
         case .host:
             return "https://fakestagram-api.herokuapp.com/"
         case .uuid:
-            return nil
+            return UserDefaults.standard.string(forKey: "uuid")
+        case .nameUser:
+            return UserDefaults.standard.string(forKey: "nameUser")
         }
     }
+    
 }
