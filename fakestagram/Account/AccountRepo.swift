@@ -24,14 +24,14 @@ class AccountRepo {
         create(newAccount) { account in
             AccountStorage.shared.item = account
             AccountStorage.shared.save()
-            Account.saveInStorage(account: account)
+            AccountUserDefault.saveInStorage(account: account)
             success?(account)
         }
     }
 
     func load() -> Account? {
         
-        if let account = Account.loadFromStorage() {
+        if let account = AccountUserDefault.loadFromStorage() {
             AccountStorage.shared.item = account
             AccountStorage.shared.save()
             return account

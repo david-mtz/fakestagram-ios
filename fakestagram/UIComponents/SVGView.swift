@@ -24,6 +24,7 @@ class SVGView: UIView {
     
     private func setupView() {
         addSubview(image)
+        image.scrollView.isScrollEnabled = false
         image.anchor(top: topAnchor, leading: leadingAnchor, trailing: trailingAnchor, bottom: bottomAnchor)
     }
     
@@ -39,5 +40,18 @@ class SVGView: UIView {
         image.loadHTMLString(stringSVG, baseURL: nil)
     }
     
+    func setImage(url: URL?) {
+        guard let url = url else {
+            print("Error: cannot create URL")
+            return
+        }
+        
+        guard let stringSVG = try? String(contentsOf: url) else {
+            print("Error: The server doesn't give data")
+            return
+        }
+        image.loadHTMLString(stringSVG, baseURL: nil)
+    }
+
     
 }

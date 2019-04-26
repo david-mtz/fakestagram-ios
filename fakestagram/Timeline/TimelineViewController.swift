@@ -24,7 +24,7 @@ class TimelineViewController: UIViewController {
         postsCollectionView.delegate = self
         postsCollectionView.dataSource = self
         postsCollectionView.register(UINib(nibName: "PostCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: identifierCell)
-        PostRepo().get(success: {(listPost) in
+        PostRepo().getList(success: {(listPost) in
             self.listPost = listPost
         })
         
@@ -73,7 +73,7 @@ extension TimelineViewController: UICollectionViewDataSource, UICollectionViewDe
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         //return image.size
-        return CGSize(width: self.postsCollectionView.frame.width, height: 510)
+        return CGSize(width: self.postsCollectionView.frame.width, height: 540)
     }
 
     

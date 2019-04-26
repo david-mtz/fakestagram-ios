@@ -18,9 +18,22 @@ enum Secrets {
         case .host:
             return "https://fakestagram-api.herokuapp.com/"
         case .uuid:
-            return UserDefaults.standard.string(forKey: "uuid")
+            return UserDefaults.standard.string(forKey: "com.fakestagram.uuid")
         case .nameUser:
-            return UserDefaults.standard.string(forKey: "nameUser")
+            return UserDefaults.standard.string(forKey: "com.fakestagram.nameUser")
+        }
+    }
+    
+    func set(value: String) -> Bool{
+        switch self {
+            case .uuid:
+                UserDefaults.standard.set(value, forKey: "com.fakestagram.uuid")
+                return true
+            case .nameUser:
+                UserDefaults.standard.set(value, forKey: "com.fakestagram.nameUser")
+                return true
+            default:
+                return false
         }
     }
     

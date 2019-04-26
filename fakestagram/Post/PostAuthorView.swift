@@ -21,7 +21,7 @@ class PostAuthorView: UIView {
     let label: UILabel = {
         let label = UILabel()
         label.text = "Adipiscing elit"
-        label.textColor = UIColor.white
+        label.textColor = UIColor.red
         label.textAlignment = NSTextAlignment(CTTextAlignment.left)
         return label
     }()
@@ -39,9 +39,11 @@ class PostAuthorView: UIView {
     func setupView() {
         
         addSubview(avatarView)
-        avatarView.anchor(top: topAnchor, leading: leadingAnchor, trailing: nil, bottom: bottomAnchor,  size: CGSize(width: 60, height: 0))
+        
+        avatarView.anchor(top: topAnchor, leading: leadingAnchor, trailing: nil, bottom: bottomAnchor, padding: UIEdgeInsets(top: 2.5, left: 6, bottom: 0, right: 0), size: CGSize(width: 40, height: 40))
+        
         avatarView.clipsToBounds = true
-        avatarView.layer.cornerRadius = 30
+        avatarView.layer.cornerRadius = 20
         
         addSubview(label)
         label.anchor(top: topAnchor, leading: avatarView.trailingAnchor, trailing: trailingAnchor, bottom: bottomAnchor, padding: UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0))
@@ -51,6 +53,6 @@ class PostAuthorView: UIView {
     func updateContent() {
         label.text
         = author?.name
-        //avatarView.setImage(urlString: author?.avatarURL())
+        avatarView.setImage(url: author?.avatarURL())
     }
 }

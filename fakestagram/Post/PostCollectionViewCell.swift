@@ -39,9 +39,5 @@ class PostCollectionViewCell: UICollectionViewCell {
         imageV.getFromUrl(url: post.imageUrl)
         
     }
-    
-    func setAutoLayout() {
         
-    }
-    
 }

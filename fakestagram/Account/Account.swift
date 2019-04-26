@@ -24,26 +24,4 @@ struct Account: Codable {
         )
     }
     
-    static func loadFromStorage() -> Account? {
-        
-        if let uuid = UserDefaults.standard.string(forKey: "com.fakestagram.uuid"), let name = UserDefaults.standard.string(forKey: "com.fakestagram.nameUser") {
-            return Account(
-                id: uuid,
-                name: name,
-                deviceNumber: UIDevice.identifier,
-                deviceModel: UIDevice.modelName
-            )
-        }
-        
-        return nil
-    }
-    
-    static func saveInStorage(account: Account) {
-        if let id = account.id {
-            UserDefaults.standard.set(id, forKey: "com.fakestagram.uuid")
-            UserDefaults.standard.set(account.name, forKey: "com.fakestagram.nameUser")
-        }
-        print("I didn't save account in storage")
-    }
-    
 }
