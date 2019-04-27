@@ -10,11 +10,11 @@ import Foundation
 
 class ItemStorage<T> where T: Codable {
     public var item: T?
-    private let store: CodableStore<T>
+    private let store: CodableArchive<T>
     
     init(filename: String) {
-        StorageType.permanent.ensureExists()
-        store = CodableStore<T>(filename: filename)
+        //StorageType.permanent.ensureExists()
+        store = CodableArchive<T>(filename: filename)
         item = store.load()
     }
     

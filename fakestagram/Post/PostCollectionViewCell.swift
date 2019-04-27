@@ -16,6 +16,8 @@ class PostCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    private var like = false
+    
     @IBOutlet weak var imageV: UIImageView!
     @IBOutlet weak var countLikesLabel: UILabel!
     @IBOutlet weak var titleLabel: UITextView!
@@ -39,5 +41,25 @@ class PostCollectionViewCell: UICollectionViewCell {
         imageV.getFromUrl(url: post.imageUrl)
         
     }
+    
+    @IBAction func tapLike(_ sender: Any) {
+        likeUpdateView()
+    }
+    
+    func likeUpdateView(){
+        guard var post = self.post else {
+            return
+        }
         
+        like = !like
+        if like {
+            post.likesCount += 1
+        } else {
+            post.likesCount -= 1
+        }
+        
+        self.post = post
+    }
+    
+    
 }

@@ -32,6 +32,10 @@ class RestClient<T> where T: Codable {
     func create(codable: T, success: @escaping codableResponse) {
         request("POST", path: "\(path)", payload: codable, success: success, errorHandler: nil)
     }
+    
+    func create(success: @escaping codableResponse) {
+        request("POST", path: "\(path)", payload: nil, success: success, errorHandler: nil)
+    }
 
     func update(id: Int, codable: T, success: @escaping codableResponse) {
         update(id: "\(id)", codable: codable, success: success)

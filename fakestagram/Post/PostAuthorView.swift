@@ -40,13 +40,13 @@ class PostAuthorView: UIView {
         
         addSubview(avatarView)
         
-        avatarView.anchor(top: topAnchor, leading: leadingAnchor, trailing: nil, bottom: bottomAnchor, padding: UIEdgeInsets(top: 2.5, left: 6, bottom: 0, right: 0), size: CGSize(width: 40, height: 40))
+        /*avatarView.anchor(top: topAnchor, leading: leadingAnchor, trailing: nil, bottom: bottomAnchor, padding: UIEdgeInsets(top: 2.5, left: 6, bottom: 0, right: 0), size: CGSize(width: 40, height: 40))
         
         avatarView.clipsToBounds = true
-        avatarView.layer.cornerRadius = 20
+        avatarView.layer.cornerRadius = 20*/
         
-        addSubview(label)
-        label.anchor(top: topAnchor, leading: avatarView.trailingAnchor, trailing: trailingAnchor, bottom: bottomAnchor, padding: UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0))
+        /*addSubview(label)
+        label.anchor(top: topAnchor, leading: avatarView.trailingAnchor, trailing: trailingAnchor, bottom: bottomAnchor, padding: UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0))*/
         
     }
     

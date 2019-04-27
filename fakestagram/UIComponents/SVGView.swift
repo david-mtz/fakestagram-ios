@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-class SVGView: UIView {
+class SVGView: UIView, WKNavigationDelegate {
     let image: WKWebView = WKWebView()
     
     override init(frame: CGRect) {
@@ -23,9 +23,10 @@ class SVGView: UIView {
     }
     
     private func setupView() {
+        image.navigationDelegate = self
         addSubview(image)
         image.scrollView.isScrollEnabled = false
-        image.anchor(top: topAnchor, leading: leadingAnchor, trailing: trailingAnchor, bottom: bottomAnchor)
+        //image.anchor(top: topAnchor, leading: leadingAnchor, trailing: trailingAnchor, bottom: bottomAnchor)
     }
     
     func setImage(urlString: String) {
@@ -33,11 +34,10 @@ class SVGView: UIView {
             print("Error: cannot create URL")
             return
         }
-        guard let stringSVG = try? String(contentsOf: url) else {
-            print("Error: The server doesn't give data")
-            return
-        }
-        image.loadHTMLString(stringSVG, baseURL: nil)
+        
+        let req = URLRequest(url: url)
+        image.load(req)
+        
     }
     
     func setImage(url: URL?) {
@@ -46,12 +46,18 @@ class SVGView: UIView {
             return
         }
         
-        guard let stringSVG = try? String(contentsOf: url) else {
-            print("Error: The server doesn't give data")
-            return
-        }
-        image.loadHTMLString(stringSVG, baseURL: nil)
+        let req = URLRequest(url: url)
+        image.load(req)
+        
     }
-
+    
+    
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        // Hard coded offset value to center svg
+        webView.evaluateJavaScript("window.scrollTo(410,0)", completionHandler: nil)
+    }
+    
+    
     
 }

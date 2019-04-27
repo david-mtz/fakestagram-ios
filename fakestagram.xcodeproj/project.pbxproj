@@ -8,10 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		08A15F902262380600210806 /* PostRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A15F8F2262380600210806 /* PostRepo.swift */; };
+		08D0D4862273C396006DCD48 /* ImageArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D0D4852273C396006DCD48 /* ImageArchive.swift */; };
+		08D0D4882273C79D006DCD48 /* DataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D0D4872273C79D006DCD48 /* DataContainer.swift */; };
+		08D0D48A2273CD6A006DCD48 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D0D4892273CD6A006DCD48 /* ImageCache.swift */; };
+		08D0D48C2273DE57006DCD48 /* LikeClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D0D48B2273DE57006DCD48 /* LikeClient.swift */; };
+		08D0D48E2273DE96006DCD48 /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D0D48D2273DE96006DCD48 /* Like.swift */; };
 		08D678672262301B00BE28AE /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D678662262301B00BE28AE /* UIImageView.swift */; };
+		08D7D5452274A1E80009C50E /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D7D5442274A1E80009C50E /* CameraViewController.swift */; };
+		08D7D5472274A49E0009C50E /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D7D5462274A49E0009C50E /* UIImage.swift */; };
+		08D7D5492274C03B0009C50E /* CreatePostClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D7D5482274C03B0009C50E /* CreatePostClient.swift */; };
 		634C1417227292CC0061E220 /* AccountUserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634C1416227292CC0061E220 /* AccountUserDefault.swift */; };
 		63FEFAB7225AE84C008B830F /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FEFAB6225AE84C008B830F /* UIView.swift */; };
-		E04FB2DC2249F2AB00B81C8A /* CodableStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04FB2DB2249F2AB00B81C8A /* CodableStore.swift */; };
+		E04FB2DC2249F2AB00B81C8A /* CodableArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04FB2DB2249F2AB00B81C8A /* CodableArchive.swift */; };
 		E04FB2DE2249F2D300B81C8A /* StorageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04FB2DD2249F2D300B81C8A /* StorageType.swift */; };
 		E04FB2E02249F42A00B81C8A /* ItemStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04FB2DF2249F42A00B81C8A /* ItemStorage.swift */; };
 		E04FB2E22249F52900B81C8A /* AccountStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04FB2E12249F52900B81C8A /* AccountStorage.swift */; };
@@ -55,10 +63,18 @@
 
 /* Begin PBXFileReference section */
 		08A15F8F2262380600210806 /* PostRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRepo.swift; sourceTree = "<group>"; };
+		08D0D4852273C396006DCD48 /* ImageArchive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageArchive.swift; sourceTree = "<group>"; };
+		08D0D4872273C79D006DCD48 /* DataContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataContainer.swift; sourceTree = "<group>"; };
+		08D0D4892273CD6A006DCD48 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		08D0D48B2273DE57006DCD48 /* LikeClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeClient.swift; sourceTree = "<group>"; };
+		08D0D48D2273DE96006DCD48 /* Like.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Like.swift; sourceTree = "<group>"; };
 		08D678662262301B00BE28AE /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		08D7D5442274A1E80009C50E /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		08D7D5462274A49E0009C50E /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		08D7D5482274C03B0009C50E /* CreatePostClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostClient.swift; sourceTree = "<group>"; };
 		634C1416227292CC0061E220 /* AccountUserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountUserDefault.swift; sourceTree = "<group>"; };
 		63FEFAB6225AE84C008B830F /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
-		E04FB2DB2249F2AB00B81C8A /* CodableStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableStore.swift; sourceTree = "<group>"; };
+		E04FB2DB2249F2AB00B81C8A /* CodableArchive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableArchive.swift; sourceTree = "<group>"; };
 		E04FB2DD2249F2D300B81C8A /* StorageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageType.swift; sourceTree = "<group>"; };
 		E04FB2DF2249F42A00B81C8A /* ItemStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStorage.swift; sourceTree = "<group>"; };
 		E04FB2E12249F52900B81C8A /* AccountStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountStorage.swift; sourceTree = "<group>"; };
@@ -112,11 +128,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08D7D5432274A1CD0009C50E /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				08D7D5442274A1E80009C50E /* CameraViewController.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
 		63FEFAB5225AE82C008B830F /* UIUtils */ = {
 			isa = PBXGroup;
 			children = (
 				63FEFAB6225AE84C008B830F /* UIView.swift */,
 				08D678662262301B00BE28AE /* UIImageView.swift */,
+				08D7D5462274A49E0009C50E /* UIImage.swift */,
 			);
 			path = UIUtils;
 			sourceTree = "<group>";
@@ -133,8 +158,11 @@
 		E04FB2DA2249F27800B81C8A /* Stores */ = {
 			isa = PBXGroup;
 			children = (
-				E04FB2DB2249F2AB00B81C8A /* CodableStore.swift */,
+				E04FB2DB2249F2AB00B81C8A /* CodableArchive.swift */,
+				08D0D4892273CD6A006DCD48 /* ImageCache.swift */,
 				E04FB2DD2249F2D300B81C8A /* StorageType.swift */,
+				08D0D4852273C396006DCD48 /* ImageArchive.swift */,
+				08D0D4872273C79D006DCD48 /* DataContainer.swift */,
 			);
 			path = Stores;
 			sourceTree = "<group>";
@@ -191,6 +219,7 @@
 				E04FB2D72249F1E600B81C8A /* Storages */,
 				E0DDF9F4223DF640009EB136 /* Main.storyboard */,
 				E0DDF9F0223DF640009EB136 /* AppDelegate.swift */,
+				08D7D5432274A1CD0009C50E /* Camera */,
 				E0DDF9F7223DF642009EB136 /* Assets.xcassets */,
 				E0DDF9F9223DF642009EB136 /* LaunchScreen.storyboard */,
 				E0DDF9FC223DF642009EB136 /* Info.plist */,
@@ -216,6 +245,7 @@
 		E0DDFA16223DFCB6009EB136 /* Post */ = {
 			isa = PBXGroup;
 			children = (
+				08D0D48B2273DE57006DCD48 /* LikeClient.swift */,
 				E0DDFA17223DFCC8009EB136 /* Post.swift */,
 				E0DDFA1F223DFE73009EB136 /* PostCollectionViewCell.swift */,
 				E0DDFA20223DFE73009EB136 /* PostCollectionViewCell.xib */,
@@ -224,6 +254,8 @@
 				E0DDFA2F223E181C009EB136 /* PostDetailViewController.swift */,
 				E0DDFA30223E181C009EB136 /* PostDetailViewController.xib */,
 				08A15F8F2262380600210806 /* PostRepo.swift */,
+				08D0D48D2273DE96006DCD48 /* Like.swift */,
+				08D7D5482274C03B0009C50E /* CreatePostClient.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -350,16 +382,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08D0D48A2273CD6A006DCD48 /* ImageCache.swift in Sources */,
 				E0DDFA29223E03DC009EB136 /* Author.swift in Sources */,
 				08D678672262301B00BE28AE /* UIImageView.swift in Sources */,
 				E0DDFA2B223E04A3009EB136 /* Identicon.swift in Sources */,
 				E0BB974F223F552B00D028A1 /* UIDevice+Info.swift in Sources */,
+				08D0D48C2273DE57006DCD48 /* LikeClient.swift in Sources */,
 				E0BCD23922489DFB00B4E0F6 /* Status.swift in Sources */,
 				E0DDFA21223DFE73009EB136 /* PostCollectionViewCell.swift in Sources */,
+				08D0D4882273C79D006DCD48 /* DataContainer.swift in Sources */,
 				E04FB2DE2249F2D300B81C8A /* StorageType.swift in Sources */,
+				08D0D48E2273DE96006DCD48 /* Like.swift in Sources */,
+				08D7D5452274A1E80009C50E /* CameraViewController.swift in Sources */,
 				E0DDFA25223E0017009EB136 /* SVGView.swift in Sources */,
 				E04FB2E22249F52900B81C8A /* AccountStorage.swift in Sources */,
-				E04FB2DC2249F2AB00B81C8A /* CodableStore.swift in Sources */,
+				E04FB2DC2249F2AB00B81C8A /* CodableArchive.swift in Sources */,
 				E0BCD23B22489E2300B4E0F6 /* HttpResponse.swift in Sources */,
 				E0DDFA31223E181C009EB136 /* PostDetailViewController.swift in Sources */,
 				63FEFAB7225AE84C008B830F /* UIView.swift in Sources */,
@@ -368,12 +405,15 @@
 				E04FB2E02249F42A00B81C8A /* ItemStorage.swift in Sources */,
 				E0DDFA18223DFCC8009EB136 /* Post.swift in Sources */,
 				E0DDFA2E223E0EF2009EB136 /* TimelineViewController.swift in Sources */,
+				08D7D5472274A49E0009C50E /* UIImage.swift in Sources */,
 				E0BB9755223F5EDA00D028A1 /* Name.swift in Sources */,
+				08D0D4862273C396006DCD48 /* ImageArchive.swift in Sources */,
 				634C1417227292CC0061E220 /* AccountUserDefault.swift in Sources */,
 				E0DDF9F1223DF640009EB136 /* AppDelegate.swift in Sources */,
 				E0BB9748223F444B00D028A1 /* Client.swift in Sources */,
 				08A15F902262380600210806 /* PostRepo.swift in Sources */,
 				E0DDFA27223E029A009EB136 /* PostAuthorView.swift in Sources */,
+				08D7D5492274C03B0009C50E /* CreatePostClient.swift in Sources */,
 				E0BB9751223F57C400D028A1 /* Date+timestamp.swift in Sources */,
 				E0BB974A223F449700D028A1 /* Secrets.swift in Sources */,
 				E0BB9757223F6A3500D028A1 /* AccountRepo.swift in Sources */,

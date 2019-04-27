@@ -76,5 +76,5 @@ extension TimelineViewController: UICollectionViewDataSource, UICollectionViewDe
         return CGSize(width: self.postsCollectionView.frame.width, height: 540)
     }
 
-    
+        
 }
