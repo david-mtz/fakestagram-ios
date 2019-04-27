@@ -26,7 +26,7 @@ class SVGView: UIView, WKNavigationDelegate {
         image.navigationDelegate = self
         addSubview(image)
         image.scrollView.isScrollEnabled = false
-        //image.anchor(top: topAnchor, leading: leadingAnchor, trailing: trailingAnchor, bottom: bottomAnchor)
+        image.anchor(top: topAnchor, leading: leadingAnchor, trailing: trailingAnchor, bottom: bottomAnchor)
     }
     
     func setImage(urlString: String) {

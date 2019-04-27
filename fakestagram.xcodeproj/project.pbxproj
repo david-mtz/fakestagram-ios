@@ -11,7 +11,7 @@
 		08D0D4862273C396006DCD48 /* ImageArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D0D4852273C396006DCD48 /* ImageArchive.swift */; };
 		08D0D4882273C79D006DCD48 /* DataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D0D4872273C79D006DCD48 /* DataContainer.swift */; };
 		08D0D48A2273CD6A006DCD48 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D0D4892273CD6A006DCD48 /* ImageCache.swift */; };
-		08D0D48C2273DE57006DCD48 /* LikeClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D0D48B2273DE57006DCD48 /* LikeClient.swift */; };
+		08D0D48C2273DE57006DCD48 /* LikeUpdaterClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D0D48B2273DE57006DCD48 /* LikeUpdaterClient.swift */; };
 		08D0D48E2273DE96006DCD48 /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D0D48D2273DE96006DCD48 /* Like.swift */; };
 		08D678672262301B00BE28AE /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D678662262301B00BE28AE /* UIImageView.swift */; };
 		08D7D5452274A1E80009C50E /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D7D5442274A1E80009C50E /* CameraViewController.swift */; };
@@ -66,7 +66,7 @@
 		08D0D4852273C396006DCD48 /* ImageArchive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageArchive.swift; sourceTree = "<group>"; };
 		08D0D4872273C79D006DCD48 /* DataContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataContainer.swift; sourceTree = "<group>"; };
 		08D0D4892273CD6A006DCD48 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
-		08D0D48B2273DE57006DCD48 /* LikeClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeClient.swift; sourceTree = "<group>"; };
+		08D0D48B2273DE57006DCD48 /* LikeUpdaterClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeUpdaterClient.swift; sourceTree = "<group>"; };
 		08D0D48D2273DE96006DCD48 /* Like.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Like.swift; sourceTree = "<group>"; };
 		08D678662262301B00BE28AE /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		08D7D5442274A1E80009C50E /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
@@ -245,7 +245,7 @@
 		E0DDFA16223DFCB6009EB136 /* Post */ = {
 			isa = PBXGroup;
 			children = (
-				08D0D48B2273DE57006DCD48 /* LikeClient.swift */,
+				08D0D48B2273DE57006DCD48 /* LikeUpdaterClient.swift */,
 				E0DDFA17223DFCC8009EB136 /* Post.swift */,
 				E0DDFA1F223DFE73009EB136 /* PostCollectionViewCell.swift */,
 				E0DDFA20223DFE73009EB136 /* PostCollectionViewCell.xib */,
@@ -387,7 +387,7 @@
 				08D678672262301B00BE28AE /* UIImageView.swift in Sources */,
 				E0DDFA2B223E04A3009EB136 /* Identicon.swift in Sources */,
 				E0BB974F223F552B00D028A1 /* UIDevice+Info.swift in Sources */,
-				08D0D48C2273DE57006DCD48 /* LikeClient.swift in Sources */,
+				08D0D48C2273DE57006DCD48 /* LikeUpdaterClient.swift in Sources */,
 				E0BCD23922489DFB00B4E0F6 /* Status.swift in Sources */,
 				E0DDFA21223DFE73009EB136 /* PostCollectionViewCell.swift in Sources */,
 				08D0D4882273C79D006DCD48 /* DataContainer.swift in Sources */,

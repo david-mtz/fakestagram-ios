@@ -98,6 +98,7 @@
                 <outlet property="countCommentsLabel" destination="00E-Fs-pbe" id="ouc-rZ-vMI"/>
                 <outlet property="countLikesLabel" destination="lfa-mc-RD9" id="QEP-Qx-MRl"/>
                 <outlet property="imageV" destination="B7R-9H-BNz" id="FLa-Xl-Wcf"/>
+                <outlet property="likeBtn" destination="2G7-mz-Uik" id="uMZ-qC-Oxn"/>
                 <outlet property="postAuthorV" destination="Sni-u6-baQ" id="vHd-Xj-3mI"/>
                 <outlet property="titleLabel" destination="UCK-8L-B25" id="JDI-SC-QfP"/>
             </connections>

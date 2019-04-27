@@ -16,4 +16,11 @@ struct Post: Codable {
     var likesCount: Int
     var commentsCount: Int
     let createdAt: String
+    var liked: Bool
+    
+    mutating func swapLiked() -> Bool {
+        self.liked = !self.liked
+        return self.liked
+    }
+    
 }

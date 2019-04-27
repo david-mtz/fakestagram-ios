@@ -16,13 +16,15 @@ class PostCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    private var like = false
-    
     @IBOutlet weak var imageV: UIImageView!
     @IBOutlet weak var countLikesLabel: UILabel!
     @IBOutlet weak var titleLabel: UITextView!
     @IBOutlet weak var countCommentsLabel: UILabel!
     @IBOutlet weak var postAuthorV: PostAuthorView!
+    
+    let client = LikeUpdaterClient()
+    
+    @IBOutlet weak var likeBtn: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -40,10 +42,22 @@ class PostCollectionViewCell: UICollectionViewCell {
         
         imageV.getFromUrl(url: post.imageUrl)
         
+        /*if(post.liked) {
+            likeBtn.titleLabel?.text = "Unlike"
+        } else {
+            likeBtn.titleLabel?.text = "Like"
+        }*/
+        
     }
     
     @IBAction func tapLike(_ sender: Any) {
-        likeUpdateView()
+        //likeUpdateView()
+        guard var post = self.post else {return}
+        if post.swapLiked() {
+            post.likesCount = client.like(post: post)
+        } else {
+            post.likesCount = client.dislike(post: post)
+        }
     }
     
     func likeUpdateView(){
@@ -51,8 +65,8 @@ class PostCollectionViewCell: UICollectionViewCell {
             return
         }
         
-        like = !like
-        if like {
+        post.liked = !post.liked
+        if post.liked {
             post.likesCount += 1
         } else {
             post.likesCount -= 1

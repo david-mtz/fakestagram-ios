@@ -24,7 +24,7 @@ extension UIImageView {
         
         if let img = cache.load() {
             self.image = img
-            print("Se cargo de cache")
+            //print("Se cargo de cache")
             return
         }
         
@@ -34,7 +34,7 @@ extension UIImageView {
                     self.image = img
                 }
                 _ = cache.save(image: img)
-                print("Se salvo en cache")
+                //print("Se salvo en cache")
             }
         }
 

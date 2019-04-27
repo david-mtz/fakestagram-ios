@@ -9,9 +9,7 @@
 import Foundation
 
 struct Like: Codable {
-    let id: String?
-    let postId: String?
-    let accountId: String
+    let author: Author?
     let createdAt: String
     let updateAt: String
 }
