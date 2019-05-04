@@ -12,6 +12,13 @@ struct Author: Codable {
     let name: String
     let id: String
     
+    static func initialize() -> Author {
+        return Author(
+            name: "",
+            id: ""
+        )
+    }
+
     func avatarURL() -> URL {
         return Identicon(key: self.name).url()!
     }

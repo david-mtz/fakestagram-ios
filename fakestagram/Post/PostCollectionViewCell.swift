@@ -9,6 +9,7 @@
 import UIKit
 
 class PostCollectionViewCell: UICollectionViewCell {
+    
     public var post: Post? {
         didSet {
             postAuthorV.author = post?.author
@@ -16,13 +17,14 @@ class PostCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    var rowId: Int? = nil
+        
     @IBOutlet weak var imageV: UIImageView!
     @IBOutlet weak var countLikesLabel: UILabel!
     @IBOutlet weak var titleLabel: UITextView!
     @IBOutlet weak var countCommentsLabel: UILabel!
     @IBOutlet weak var postAuthorV: PostAuthorView!
     
-    let client = LikeUpdaterClient()
     
     @IBOutlet weak var likeBtn: UIButton!
     
@@ -52,11 +54,13 @@ class PostCollectionViewCell: UICollectionViewCell {
     
     @IBAction func tapLike(_ sender: Any) {
         //likeUpdateView()
-        guard var post = self.post else {return}
+        guard var post = self.post, let rowId = self.rowId else {return}
+        
+        let likeClient = LikeUpdaterClient(post: post, rowId: rowId)
         if post.swapLiked() {
-            post.likesCount = client.like(post: post)
+            self.post = likeClient.like()
         } else {
-            post.likesCount = client.dislike(post: post)
+            self.post = likeClient.dislike()
         }
     }
     

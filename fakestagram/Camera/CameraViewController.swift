@@ -21,7 +21,7 @@ class CameraViewController: UIViewController {
     }
     
     @IBAction func uploadImage(_ sender: UIButton) {
-        guard let img = UIImage(named: "endgame") else { return }
+        guard let img = UIImage(named: "chilaquil") else { return }
         
         
         let payload = CreatePostBase64(title: "SFdsfdsf", imageData: img.toBase64()!)

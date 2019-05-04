@@ -21,8 +21,14 @@ struct Client {
     }
 
     func request(_ method: String, path: String, body: Data?, completionHandler: completionHandler?, errorHandler: errorHandler?) {
+        request(method, path: path, queryItems: nil, body: body, completionHandler: completionHandler, errorHandler: errorHandler)
+    }
+
+    func request(_ method: String, path: String, queryItems: [String: String]?, body: Data?, completionHandler: completionHandler?, errorHandler: errorHandler?) {
         var requestURLComponents = baseURLComponents
         requestURLComponents.path = path
+        requestURLComponents.queryItems = castQueryItems(queryItems: queryItems)
+        
         guard let url = requestURLComponents.url else {
             print("[ERROR] Invalid path: \(path)")
             return
@@ -43,9 +49,20 @@ struct Client {
             }
             let response = HTTPResponse(reponse: response as! HTTPURLResponse)
             DispatchQueue.main.async {
+                //print(response.status, data)
                 completionHandler?(response, data)
             }
         }
         task.resume()
     }
+    
+    private func castQueryItems(queryItems: [String:String]?) -> [URLQueryItem] {
+        guard let rawItems = queryItems, rawItems.isEmpty else { return [] }
+        var items = [URLQueryItem]()
+        for (key, value) in rawItems {
+            items.append(URLQueryItem(name: key, value: value))
+        }
+        return items
+    }
+    
 }

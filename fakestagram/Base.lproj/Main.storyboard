@@ -40,13 +40,13 @@
         <!--Profile Name-->
         <scene sceneID="F5e-x0-Usw">
             <objects>
-                <viewController id="ZXG-Uf-fgx" sceneMemberID="viewController">
+                <viewController id="ZXG-Uf-fgx" customClass="ProfileViewController" customModule="fakestagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Olc-Pp-Vyl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iR7-wM-iiK">
-                                <rect key="frame" x="0.0" y="141" width="375" height="477"/>
+                                <rect key="frame" x="0.0" y="122" width="375" height="496"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="90a-Dj-e17">
                                     <size key="itemSize" width="50" height="50"/>
@@ -66,10 +66,10 @@
                                 </cells>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5q0-Ap-zuW" customClass="PostAuthorView" customModule="fakestagram" customModuleProvider="target">
-                                <rect key="frame" x="5" y="69" width="365" height="64"/>
+                                <rect key="frame" x="5" y="69" width="365" height="45"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="Yus-G8-6JH"/>
+                                    <constraint firstAttribute="height" constant="45" id="Yus-G8-6JH"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -86,6 +86,10 @@
                         <viewLayoutGuide key="safeArea" id="hc8-6h-JFA"/>
                     </view>
                     <navigationItem key="navigationItem" title="Profile Name" id="g7K-02-Y1a"/>
+                    <connections>
+                        <outlet property="postAuthorV" destination="5q0-Ap-zuW" id="NcY-Ir-8oC"/>
+                        <outlet property="previewCollectionView" destination="iR7-wM-iiK" id="PvK-3M-o00"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3oI-Up-tFT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

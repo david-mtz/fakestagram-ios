@@ -18,9 +18,10 @@ class PostAuthorView: UIView {
     }
     
     let avatarView: SVGView = SVGView()
+    
     let label: UILabel = {
         let label = UILabel()
-        label.text = "Adipiscing elit"
+        label.text = ""
         label.textColor = UIColor.red
         label.textAlignment = NSTextAlignment(CTTextAlignment.left)
         return label
@@ -40,7 +41,7 @@ class PostAuthorView: UIView {
         
         addSubview(avatarView)
         
-        avatarView.anchor(top: topAnchor, leading: leadingAnchor, trailing: nil, bottom: bottomAnchor, padding: UIEdgeInsets(top: 2.5, left: 6, bottom: 0, right: 0), size: CGSize(width: 40, height: 40))
+        avatarView.anchor(top: topAnchor, leading: leadingAnchor, trailing: nil, bottom: bottomAnchor, size: CGSize(width: 40, height: 0))
         
         avatarView.clipsToBounds = true
         avatarView.layer.cornerRadius = 20
@@ -51,8 +52,9 @@ class PostAuthorView: UIView {
     }
     
     func updateContent() {
+        guard let author = self.author else { return }
         label.text
-        = author?.name
-        avatarView.setImage(url: author?.avatarURL())
+        = author.name
+        avatarView.setImage(url: author.avatarURL())
     }
 }

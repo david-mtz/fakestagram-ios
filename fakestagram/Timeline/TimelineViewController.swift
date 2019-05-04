@@ -13,11 +13,13 @@ class TimelineViewController: UIViewController {
     
     let identifierCell = "postViewCell"
     
+    
     var listPost: [Post] = [Post]() {
         didSet {
             updateCollection()
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,12 +30,22 @@ class TimelineViewController: UIViewController {
             self.listPost = listPost
         })
         
+        NotificationCenter.default.addObserver(self, selector: #selector(didLikePost), name: .didLikePost, object: nil)
+        
         
         // Do any additional setup after loading the view.
     }
     
     
-
+    @objc func didLikePost(notification: NSNotification) {
+        guard let userInfo = notification.userInfo, let data = userInfo["post"] as? Data else {return}
+        print("-------------- Notification post --------------")
+        let json = try? JSONDecoder().decode(Post.self, from: data)
+        print(json)
+        guard let idPost = userInfo["row"] as? Int, let postUpdated = json else {return}
+        print("Se actualizo en el timeline")
+        listPost[idPost] = postUpdated
+    }
     
     
     func updateCollection() {
@@ -64,6 +76,8 @@ extension TimelineViewController: UICollectionViewDataSource, UICollectionViewDe
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifierCell, for: indexPath) as! PostCollectionViewCell
         
         cell.post = listPost[indexPath.row]
+        
+        cell.rowId = indexPath.row
         
         // Configure the cel
         return cell

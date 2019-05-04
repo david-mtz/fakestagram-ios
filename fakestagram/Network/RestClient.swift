@@ -52,8 +52,12 @@ class RestClient<T> where T: Codable {
     }
     
     private func request(_ method: String, path: String, payload: T?, success: @escaping codableResponse, errorHandler: errorHandler?) {
+        request(method, path: path, queryItems: nil, payload: payload, success: success, errorHandler: errorHandler)
+    }
+
+    private func request(_ method: String, path: String, queryItems: [String: String]?, payload: T?, success: @escaping codableResponse, errorHandler: errorHandler?) {
         let data = encode(payload: payload)
-        client.request(method, path: path, body: data, completionHandler: { (response, data) in
+        client.request(method, path: path, queryItems: queryItems, body: data, completionHandler: { (response, data) in
             guard response.successful() else { return }
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase

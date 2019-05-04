@@ -36,6 +36,7 @@ class SVGView: UIView, WKNavigationDelegate {
         }
         
         let req = URLRequest(url: url)
+        
         image.load(req)
         
     }
@@ -51,7 +52,10 @@ class SVGView: UIView, WKNavigationDelegate {
         
     }
     
+    func loadCacheImage(url: URL) {
     
+        
+    }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         // Hard coded offset value to center svg
