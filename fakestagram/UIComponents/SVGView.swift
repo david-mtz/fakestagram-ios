@@ -24,37 +24,41 @@ class SVGView: UIView, WKNavigationDelegate {
     
     private func setupView() {
         image.navigationDelegate = self
-        addSubview(image)
         image.scrollView.isScrollEnabled = false
+        addSubview(image)
         image.anchor(top: topAnchor, leading: leadingAnchor, trailing: trailingAnchor, bottom: bottomAnchor)
     }
     
     func setImage(urlString: String) {
+        
+        let svgName = String(urlString.hashValue) + ".svg"
+        let cache = DataCache(filename: svgName)
+        
         guard let url = URL(string: urlString) else {
             print("Error: cannot create URL")
             return
         }
         
-        let req = URLRequest(url: url)
+        if let img = cache.load() {
+            image.load(img, mimeType: "image/svg+xml", characterEncodingName: "UTF-8", baseURL: url)
+            return
+        }
         
-        image.load(req)
+        DispatchQueue.global(qos: .background).async {
+            if let data = try? Data(contentsOf: url) {
+                DispatchQueue.main.async {
+                    self.image.load(data, mimeType: "image/svg+xml", characterEncodingName: "UTF-8", baseURL: url)
+                }
+                _ = cache.save(data: data)
+            }
+        }
+
         
     }
     
     func setImage(url: URL?) {
-        guard let url = url else {
-            print("Error: cannot create URL")
-            return
-        }
-        
-        let req = URLRequest(url: url)
-        image.load(req)
-        
-    }
-    
-    func loadCacheImage(url: URL) {
-    
-        
+        guard let url = url else { return }
+        setImage(urlString: url.absoluteString)
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {

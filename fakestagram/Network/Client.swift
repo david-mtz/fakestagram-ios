@@ -28,7 +28,6 @@ struct Client {
         var requestURLComponents = baseURLComponents
         requestURLComponents.path = path
         requestURLComponents.queryItems = castQueryItems(queryItems: queryItems)
-        
         guard let url = requestURLComponents.url else {
             print("[ERROR] Invalid path: \(path)")
             return
@@ -57,7 +56,7 @@ struct Client {
     }
     
     private func castQueryItems(queryItems: [String:String]?) -> [URLQueryItem] {
-        guard let rawItems = queryItems, rawItems.isEmpty else { return [] }
+        guard let rawItems = queryItems, !rawItems.isEmpty else { return [] }
         var items = [URLQueryItem]()
         for (key, value) in rawItems {
             items.append(URLQueryItem(name: key, value: value))

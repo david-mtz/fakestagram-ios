@@ -19,7 +19,7 @@ extension UIImageView {
             return
         }
         
-        let imageKey = String(urlstring.hashValue)
+        let imageKey = String(urlstring.hashValue) + ".jpg"
         let cache = ImageCache(filename: imageKey)
         
         if let img = cache.load() {

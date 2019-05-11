@@ -12,6 +12,7 @@ import UIKit
 class AccountRepo {
     static let shared = AccountRepo()
     let restClient = RestClient<Account>(client: Client(), path: "/api/accounts")
+    private let storage = CodableStorage<Account>(filename: "account.json")
     
     typealias accountResponse = (Account) -> Void
     
@@ -20,25 +21,16 @@ class AccountRepo {
             success?(account)
             return
         }
+        
         let newAccount = Account.initialize()
-        create(newAccount) { account in
-            AccountStorage.shared.item = account
-            AccountStorage.shared.save()
-            AccountUserDefault.saveInStorage(account: account)
+        create(newAccount) { [weak self] account in
+            _ = self?.storage.save(data: account)
             success?(account)
         }
     }
 
     func load() -> Account? {
-        
-        if let account = AccountUserDefault.loadFromStorage() {
-            AccountStorage.shared.item = account
-            AccountStorage.shared.save()
-            return account
-        }
-        
-        return AccountStorage.shared.item
-        
+        return storage.load()
     }
     
     func create(_ account: Account, success: @escaping (Account) -> Void) {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class AccountStorage: ItemStorage<Account> {
+class AccountStorage: CodableStorage<Account> {
     static let shared = AccountStorage()
     
     init() {

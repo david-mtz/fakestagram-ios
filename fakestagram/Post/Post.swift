@@ -12,6 +12,7 @@ struct Post: Codable {
     let id: Int?
     let title: String
     let imageUrl: String?
+    let location: String?
     let author: Author?
     var likesCount: Int
     var commentsCount: Int
@@ -19,8 +20,7 @@ struct Post: Codable {
     var liked: Bool
     
     mutating func swapLiked() -> Bool {
-        self.liked = !self.liked
-        return self.liked
+        return !self.liked
     }
     
 }

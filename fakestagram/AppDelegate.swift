@@ -18,9 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         StorageType.cache.ensureExists()
         
         AccountRepo.shared.loadOrCreate { (account) in
-            print(account)
-            /*print(Secrets.uuid.value)
-            print(Secrets.nameUser.value)*/
+            if let uuid = account.id {
+                _ = Secrets.uuid.set(value: uuid)
+                print(account)
+            }
         }
         
     

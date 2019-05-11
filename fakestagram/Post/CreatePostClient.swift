@@ -11,6 +11,8 @@ import Foundation
 struct CreatePostBase64: Codable {
     let title: String
     let imageData: String
+    let latitude: Double?
+    let longitude: Double?
 }
 
 class CreatePostClient {

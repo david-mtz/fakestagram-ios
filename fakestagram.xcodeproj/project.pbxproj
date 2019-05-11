@@ -10,7 +10,6 @@
 		0828F431227DDFF0008D36A3 /* TimelineClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0828F430227DDFF0008D36A3 /* TimelineClient.swift */; };
 		0828F434227DF678008D36A3 /* ProfileClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0828F433227DF678008D36A3 /* ProfileClient.swift */; };
 		0828F436227DF842008D36A3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0828F435227DF842008D36A3 /* ProfileViewController.swift */; };
-		08A15F902262380600210806 /* PostRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A15F8F2262380600210806 /* PostRepo.swift */; };
 		08ADA43A227CEDCF002EAF91 /* NotificactionNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08ADA439227CEDCF002EAF91 /* NotificactionNames.swift */; };
 		08ADA43C227D1128002EAF91 /* DataCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08ADA43B227D1128002EAF91 /* DataCache.swift */; };
 		08D0D4862273C396006DCD48 /* ImageArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D0D4852273C396006DCD48 /* ImageArchive.swift */; };
@@ -23,12 +22,11 @@
 		08D7D5472274A49E0009C50E /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D7D5462274A49E0009C50E /* UIImage.swift */; };
 		08D7D5492274C03B0009C50E /* CreatePostClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D7D5482274C03B0009C50E /* CreatePostClient.swift */; };
 		49E96B97A62B90CE76323833 /* Pods_fakestagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6B39DE0EA0451DF5B6286BB /* Pods_fakestagram.framework */; };
-		634C1417227292CC0061E220 /* AccountUserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634C1416227292CC0061E220 /* AccountUserDefault.swift */; };
+		633317C922865EF400CE3A14 /* ThumbnailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633317C822865EF400CE3A14 /* ThumbnailCollectionViewCell.swift */; };
 		63FEFAB7225AE84C008B830F /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FEFAB6225AE84C008B830F /* UIView.swift */; };
 		6CD507CB1B01C21D5B8B3383 /* Pods_fakestagramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03AB428D315621BF8C152FA7 /* Pods_fakestagramTests.framework */; };
-		E04FB2DC2249F2AB00B81C8A /* CodableArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04FB2DB2249F2AB00B81C8A /* CodableArchive.swift */; };
+		E04FB2DC2249F2AB00B81C8A /* CodableStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04FB2DB2249F2AB00B81C8A /* CodableStorage.swift */; };
 		E04FB2DE2249F2D300B81C8A /* StorageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04FB2DD2249F2D300B81C8A /* StorageType.swift */; };
-		E04FB2E02249F42A00B81C8A /* ItemStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04FB2DF2249F42A00B81C8A /* ItemStorage.swift */; };
 		E04FB2E22249F52900B81C8A /* AccountStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04FB2E12249F52900B81C8A /* AccountStorage.swift */; };
 		E0BB9748223F444B00D028A1 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BB9747223F444B00D028A1 /* Client.swift */; };
 		E0BB974A223F449700D028A1 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BB9749223F449700D028A1 /* Secrets.swift */; };
@@ -73,7 +71,6 @@
 		0828F430227DDFF0008D36A3 /* TimelineClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineClient.swift; sourceTree = "<group>"; };
 		0828F433227DF678008D36A3 /* ProfileClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileClient.swift; sourceTree = "<group>"; };
 		0828F435227DF842008D36A3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		08A15F8F2262380600210806 /* PostRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRepo.swift; sourceTree = "<group>"; };
 		08ADA439227CEDCF002EAF91 /* NotificactionNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificactionNames.swift; sourceTree = "<group>"; };
 		08ADA43B227D1128002EAF91 /* DataCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCache.swift; sourceTree = "<group>"; };
 		08D0D4852273C396006DCD48 /* ImageArchive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageArchive.swift; sourceTree = "<group>"; };
@@ -85,15 +82,14 @@
 		08D7D5442274A1E80009C50E /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		08D7D5462274A49E0009C50E /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		08D7D5482274C03B0009C50E /* CreatePostClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostClient.swift; sourceTree = "<group>"; };
-		634C1416227292CC0061E220 /* AccountUserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountUserDefault.swift; sourceTree = "<group>"; };
+		633317C822865EF400CE3A14 /* ThumbnailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailCollectionViewCell.swift; sourceTree = "<group>"; };
 		63FEFAB6225AE84C008B830F /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		AF27B4B1DA5B546DD1B34303 /* Pods-fakestagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fakestagram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fakestagram/Pods-fakestagram.debug.xcconfig"; sourceTree = "<group>"; };
 		B4B5753D6944F3F3374A38C6 /* Pods-fakestagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fakestagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-fakestagram/Pods-fakestagram.release.xcconfig"; sourceTree = "<group>"; };
 		C46C667D52EB354087AEFB71 /* Pods-fakestagramTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fakestagramTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fakestagramTests/Pods-fakestagramTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DCD63519518ACACEF7D2B325 /* Pods-fakestagramTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fakestagramTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-fakestagramTests/Pods-fakestagramTests.release.xcconfig"; sourceTree = "<group>"; };
-		E04FB2DB2249F2AB00B81C8A /* CodableArchive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableArchive.swift; sourceTree = "<group>"; };
+		E04FB2DB2249F2AB00B81C8A /* CodableStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableStorage.swift; sourceTree = "<group>"; };
 		E04FB2DD2249F2D300B81C8A /* StorageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageType.swift; sourceTree = "<group>"; };
-		E04FB2DF2249F42A00B81C8A /* ItemStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStorage.swift; sourceTree = "<group>"; };
 		E04FB2E12249F52900B81C8A /* AccountStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountStorage.swift; sourceTree = "<group>"; };
 		E0BB9747223F444B00D028A1 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		E0BB9749223F449700D028A1 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
@@ -153,6 +149,7 @@
 			children = (
 				0828F433227DF678008D36A3 /* ProfileClient.swift */,
 				0828F435227DF842008D36A3 /* ProfileViewController.swift */,
+				633317C822865EF400CE3A14 /* ThumbnailCollectionViewCell.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -200,7 +197,6 @@
 			isa = PBXGroup;
 			children = (
 				E04FB2DA2249F27800B81C8A /* Stores */,
-				E04FB2DF2249F42A00B81C8A /* ItemStorage.swift */,
 			);
 			path = Storages;
 			sourceTree = "<group>";
@@ -208,7 +204,7 @@
 		E04FB2DA2249F27800B81C8A /* Stores */ = {
 			isa = PBXGroup;
 			children = (
-				E04FB2DB2249F2AB00B81C8A /* CodableArchive.swift */,
+				E04FB2DB2249F2AB00B81C8A /* CodableStorage.swift */,
 				08D0D4892273CD6A006DCD48 /* ImageCache.swift */,
 				E04FB2DD2249F2D300B81C8A /* StorageType.swift */,
 				08D0D4852273C396006DCD48 /* ImageArchive.swift */,
@@ -235,7 +231,6 @@
 				E0BB974C223F45EA00D028A1 /* Account.swift */,
 				E04FB2E12249F52900B81C8A /* AccountStorage.swift */,
 				E0BB9756223F6A3500D028A1 /* AccountRepo.swift */,
-				634C1416227292CC0061E220 /* AccountUserDefault.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -265,6 +260,7 @@
 			children = (
 				0828F432227DF669008D36A3 /* Profile */,
 				63FEFAB5225AE82C008B830F /* UIUtils */,
+				08D7D5432274A1CD0009C50E /* Camera */,
 				E0BB974B223F45DE00D028A1 /* Account */,
 				E0DDFA16223DFCB6009EB136 /* Post */,
 				E0DDFA2C223E0EDB009EB136 /* Timeline */,
@@ -273,7 +269,6 @@
 				E04FB2D72249F1E600B81C8A /* Storages */,
 				E0DDF9F4223DF640009EB136 /* Main.storyboard */,
 				E0DDF9F0223DF640009EB136 /* AppDelegate.swift */,
-				08D7D5432274A1CD0009C50E /* Camera */,
 				E0DDF9F7223DF642009EB136 /* Assets.xcassets */,
 				E0DDF9F9223DF642009EB136 /* LaunchScreen.storyboard */,
 				E0DDF9FC223DF642009EB136 /* Info.plist */,
@@ -307,7 +302,6 @@
 				E0DDFA28223E03DC009EB136 /* Author.swift */,
 				E0DDFA2F223E181C009EB136 /* PostDetailViewController.swift */,
 				E0DDFA30223E181C009EB136 /* PostDetailViewController.xib */,
-				08A15F8F2262380600210806 /* PostRepo.swift */,
 				08D0D48D2273DE96006DCD48 /* Like.swift */,
 				08D7D5482274C03B0009C50E /* CreatePostClient.swift */,
 			);
@@ -516,6 +510,7 @@
 				0828F434227DF678008D36A3 /* ProfileClient.swift in Sources */,
 				E0BB974F223F552B00D028A1 /* UIDevice+Info.swift in Sources */,
 				08D0D48C2273DE57006DCD48 /* LikeUpdaterClient.swift in Sources */,
+				633317C922865EF400CE3A14 /* ThumbnailCollectionViewCell.swift in Sources */,
 				E0BCD23922489DFB00B4E0F6 /* Status.swift in Sources */,
 				E0DDFA21223DFE73009EB136 /* PostCollectionViewCell.swift in Sources */,
 				08D0D4882273C79D006DCD48 /* DataContainer.swift in Sources */,
@@ -524,13 +519,12 @@
 				08D7D5452274A1E80009C50E /* CameraViewController.swift in Sources */,
 				E0DDFA25223E0017009EB136 /* SVGView.swift in Sources */,
 				E04FB2E22249F52900B81C8A /* AccountStorage.swift in Sources */,
-				E04FB2DC2249F2AB00B81C8A /* CodableArchive.swift in Sources */,
+				E04FB2DC2249F2AB00B81C8A /* CodableStorage.swift in Sources */,
 				E0BCD23B22489E2300B4E0F6 /* HttpResponse.swift in Sources */,
 				E0DDFA31223E181C009EB136 /* PostDetailViewController.swift in Sources */,
 				63FEFAB7225AE84C008B830F /* UIView.swift in Sources */,
 				E0BB974D223F45EA00D028A1 /* Account.swift in Sources */,
 				E0BCD23D2248A14300B4E0F6 /* RestClient.swift in Sources */,
-				E04FB2E02249F42A00B81C8A /* ItemStorage.swift in Sources */,
 				0828F436227DF842008D36A3 /* ProfileViewController.swift in Sources */,
 				E0DDFA18223DFCC8009EB136 /* Post.swift in Sources */,
 				E0DDFA2E223E0EF2009EB136 /* TimelineViewController.swift in Sources */,
@@ -539,10 +533,8 @@
 				E0BB9755223F5EDA00D028A1 /* Name.swift in Sources */,
 				08D0D4862273C396006DCD48 /* ImageArchive.swift in Sources */,
 				0828F431227DDFF0008D36A3 /* TimelineClient.swift in Sources */,
-				634C1417227292CC0061E220 /* AccountUserDefault.swift in Sources */,
 				E0DDF9F1223DF640009EB136 /* AppDelegate.swift in Sources */,
 				E0BB9748223F444B00D028A1 /* Client.swift in Sources */,
-				08A15F902262380600210806 /* PostRepo.swift in Sources */,
 				E0DDFA27223E029A009EB136 /* PostAuthorView.swift in Sources */,
 				08D7D5492274C03B0009C50E /* CreatePostClient.swift in Sources */,
 				E0BB9751223F57C400D028A1 /* Date+timestamp.swift in Sources */,

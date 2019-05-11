@@ -13,6 +13,7 @@ class PostCollectionViewCell: UICollectionViewCell {
     public var post: Post? {
         didSet {
             postAuthorV.author = post?.author
+            postAuthorV.locationName = post?.location
             updatePost()
         }
     }
@@ -44,39 +45,13 @@ class PostCollectionViewCell: UICollectionViewCell {
         
         imageV.getFromUrl(url: post.imageUrl)
         
-        /*if(post.liked) {
-            likeBtn.titleLabel?.text = "Unlike"
-        } else {
-            likeBtn.titleLabel?.text = "Like"
-        }*/
-        
     }
     
     @IBAction func tapLike(_ sender: Any) {
-        //likeUpdateView()
         guard var post = self.post, let rowId = self.rowId else {return}
         
         let likeClient = LikeUpdaterClient(post: post, rowId: rowId)
-        if post.swapLiked() {
-            self.post = likeClient.like()
-        } else {
-            self.post = likeClient.dislike()
-        }
-    }
-    
-    func likeUpdateView(){
-        guard var post = self.post else {
-            return
-        }
-        
-        post.liked = !post.liked
-        if post.liked {
-            post.likesCount += 1
-        } else {
-            post.likesCount -= 1
-        }
-        
-        self.post = post
+        self.post = likeClient.update()
     }
     
     

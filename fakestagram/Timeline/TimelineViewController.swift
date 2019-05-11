@@ -13,22 +13,29 @@ class TimelineViewController: UIViewController {
     
     let identifierCell = "postViewCell"
     
-    
-    var listPost: [Post] = [Post]() {
-        didSet {
-            updateCollection()
-        }
-    }
+    let client = TimelineClient()
+    let refreshControl = UIRefreshControl()
+    var pageOffset = 1
+    var loadingPage = false
+    var lastPage = false
+
+    var listPost: [Post] = [Post]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         postsCollectionView.delegate = self
         postsCollectionView.dataSource = self
+        postsCollectionView.prefetchDataSource = self
         postsCollectionView.register(UINib(nibName: "PostCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: identifierCell)
-        PostRepo().getList(success: {(listPost) in
-            self.listPost = listPost
-        })
+        postsCollectionView.addSubview(refreshControl)
+        
+        client.show { [weak self] data in
+            self?.listPost = data
+            self?.reloadData()
+        }
+
+        refreshControl.addTarget(self, action: #selector(self.reloadData), for: UIControl.Event.valueChanged)
         
         NotificationCenter.default.addObserver(self, selector: #selector(didLikePost), name: .didLikePost, object: nil)
         
@@ -36,20 +43,39 @@ class TimelineViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @objc func reloadData() {
+        pageOffset = 1
+        client.show { [weak self] data in
+            self?.listPost = data
+            sleep(1)
+            self?.refreshControl.endRefreshing()
+            self?.postsCollectionView.reloadData()
+        }
+    }
+
     
     @objc func didLikePost(notification: NSNotification) {
         guard let userInfo = notification.userInfo, let data = userInfo["post"] as? Data else {return}
-        print("-------------- Notification post --------------")
         let json = try? JSONDecoder().decode(Post.self, from: data)
-        print(json)
         guard let idPost = userInfo["row"] as? Int, let postUpdated = json else {return}
-        print("Se actualizo en el timeline")
         listPost[idPost] = postUpdated
     }
     
     
     func updateCollection() {
         postsCollectionView.reloadData()
+    }
+    
+    func loadNextPage() {
+        if lastPage { return }
+        loadingPage = true
+        pageOffset += 1
+        client.show(page: pageOffset) { [weak self] posts in
+            self?.lastPage = posts.count < 25
+            self?.listPost.append(contentsOf: posts)
+            self?.loadingPage = false
+            self?.postsCollectionView.reloadData()
+        }
     }
 
     /*
@@ -91,4 +117,15 @@ extension TimelineViewController: UICollectionViewDataSource, UICollectionViewDe
     }
 
         
+}
+
+extension TimelineViewController: UICollectionViewDataSourcePrefetching {
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        if loadingPage { return }
+        guard let indexPath = indexPaths.last else { return }
+        let upperLimit = listPost.count - 5
+        if indexPath.row > upperLimit {
+            loadNextPage()
+        }
+    }
 }

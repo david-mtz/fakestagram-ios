@@ -23,6 +23,14 @@ class LikeUpdaterClient {
         self.rowId = rowId
     }
     
+    func update() -> Post {
+        if !post.liked {
+            return like()
+        } else {
+            return dislike()
+        }
+    }
+    
     func like() -> Post {
         guard let postId = self.post.id else { return self.post }
         let path = basePath + "/\(postId)/like"
@@ -60,7 +68,7 @@ class LikeUpdaterClient {
     func onSuccessDisLike(response: HTTPResponse, data: Data?) {
         guard response.successful() else { return }
         
-        print("-------Ok dislike----------")
+        print("-------------Ok dislike-------------")
         
         var post = self.post
         post.likesCount -= 1
@@ -83,17 +91,3 @@ class LikeUpdaterClient {
 
 }
 
-
-/*class LikeClient: RestClient<Like> {
-    
-    convenience init(postId: Int) {
-        self.init(client: Client(), path: "api/post/\(postId)/like")
-    }
-    
-    /*func create() {
-        client.request("POST", path: path, body: nil, completionHandler: <#T##completionHandler?##completionHandler?##(HTTPResponse, Data?) -> Void#>, errorHandler: <#T##errorHandler?##errorHandler?##(Error?) -> Void#>)
-    }*/
-    
-    
-}
-*/

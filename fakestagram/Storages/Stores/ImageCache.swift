@@ -26,19 +26,19 @@ struct ImageCache {
         }
         
         guard let data = dataContainer.load(filename: filename) else {
-            print("Unable to load data")
+            //print("Unable to load data")
             return nil
         }
         return UIImage(data: data)
     }
     
     func save(image: UIImage) -> Bool {
+        cache.setObject(image, forKey: filename as NSString)
+
         guard let data = image.jpegData(compressionQuality: 0.95) else {
             print("Unable to load jpeg data representation")
             return false
         }
-        
-        cache.setObject(image, forKey: filename as NSString)
         
         return dataContainer.save(data: data, in: filename)
     }

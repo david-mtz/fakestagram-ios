@@ -17,6 +17,12 @@ class PostAuthorView: UIView {
         }
     }
     
+    public var locationName: String? {
+        didSet {
+            updateLocation()
+        }
+    }
+    
     let avatarView: SVGView = SVGView()
     
     let label: UILabel = {
@@ -27,6 +33,14 @@ class PostAuthorView: UIView {
         return label
     }()
     
+    let locationLabel: UILabel = {
+        let label = UILabel()
+        label.text = ""
+        label.textColor = UIColor.blue
+        label.textAlignment = NSTextAlignment(CTTextAlignment.left)
+        return label
+    }()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -47,8 +61,11 @@ class PostAuthorView: UIView {
         avatarView.layer.cornerRadius = 20
         
         addSubview(label)
-        label.anchor(top: topAnchor, leading: avatarView.trailingAnchor, trailing: trailingAnchor, bottom: bottomAnchor, padding: UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0))
+        label.anchor(top: topAnchor, leading: avatarView.trailingAnchor, trailing: trailingAnchor, bottom: nil, padding: UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0), size: CGSize(width: 0, height: 20))
         
+        addSubview(locationLabel)
+        locationLabel.anchor(top: label.bottomAnchor, leading: avatarView.trailingAnchor, trailing: trailingAnchor, bottom: bottomAnchor, padding: UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0))
+
     }
     
     func updateContent() {
@@ -56,5 +73,11 @@ class PostAuthorView: UIView {
         label.text
         = author.name
         avatarView.setImage(url: author.avatarURL())
+        
+    }
+    
+    func updateLocation() {
+        guard let location = locationName else {return}
+        locationLabel.text = location
     }
 }

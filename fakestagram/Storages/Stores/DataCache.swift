@@ -9,20 +9,10 @@
 import Foundation
 import UIKit
 
-class DataC {
-    
-    var data: Data
-    
-    init(data: Data) {
-        self.data = data
-    }
-    
-}
-
 struct DataCache {
     
     let dataContainer: DataContainer = DataContainer.cache
-    private let cache = NSCache<NSString, DataC>()
+    private let cache = NSCache<NSString, NSData>()
     let filename: String
     
     init(filename: String) {
@@ -31,27 +21,22 @@ struct DataCache {
     
     func load() -> Data? {
         
-        if let dataClass = cache.object(forKey: filename as NSString) {
-            return dataClass.data
+        if let data = cache.object(forKey: filename as NSString) {
+            return Data(referencing: data)
         }
         
         guard let data = dataContainer.load(filename: filename) else {
-            print("Unable to load data")
             return nil
         }
-        
+                
         return data
     }
     
-    func save(image: Data) -> Bool {
+    func save(data: Data) -> Bool {
+                
+        cache.setObject(NSData(data: data), forKey: filename as NSString)
         
-        return true
-        
-        /*element = DataC(data: <#T##Data#>)
-        
-        cache.setObject(element, forKey: filename as NSString)
-        
-        return dataContainer.save(data: data, in: filename)*/
+        return dataContainer.save(data: data, in: filename)
     }
     
 }

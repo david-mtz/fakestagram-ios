@@ -22,6 +22,7 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         previewCollectionView.delegate = self
         previewCollectionView.dataSource = self
+        previewCollectionView.register(ThumbnailCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         setUpView()
     }
     
@@ -53,20 +54,36 @@ class ProfileViewController: UIViewController {
 
 }
 
-extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
         
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return posts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
-        cell.backgroundColor = .red
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? ThumbnailCollectionViewCell else { return ThumbnailCollectionViewCell() }
+        //cell.backgroundColor = UIColor.red
+        cell.post = posts[indexPath.row]
         return cell
         
     }
 
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let size = self.previewCollectionView.frame.width / 3.0
+        return CGSize(width: size, height: size)
+    }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0.0
+    }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0.0
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+
     
 }

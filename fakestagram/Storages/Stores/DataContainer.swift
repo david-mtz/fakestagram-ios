@@ -16,9 +16,9 @@ enum DataContainer {
     var baseUrl: URL {
         switch self {
         case .cache:
-            return StorageType.cache.folder
+            return StorageType.cache.url
         case .permanent:
-            return StorageType.permanent.folder
+            return StorageType.permanent.url
         }
     }
     
