@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7jD-KP-m19">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7jD-KP-m19">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -98,7 +98,7 @@
             </objects>
             <point key="canvasLocation" x="1431.2" y="796.55172413793105"/>
         </scene>
-        <!--Profile Name-->
+        <!--Profile-->
         <scene sceneID="F5e-x0-Usw">
             <objects>
                 <viewController id="ZXG-Uf-fgx" customClass="ProfileViewController" customModule="fakestagram" customModuleProvider="target" sceneMemberID="viewController">
@@ -146,15 +146,31 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hc8-6h-JFA"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Profile Name" id="g7K-02-Y1a"/>
+                    <navigationItem key="navigationItem" title="Profile" id="g7K-02-Y1a"/>
                     <connections>
                         <outlet property="postAuthorV" destination="5q0-Ap-zuW" id="NcY-Ir-8oC"/>
                         <outlet property="previewCollectionView" destination="iR7-wM-iiK" id="PvK-3M-o00"/>
+                        <segue destination="gPC-pD-48s" kind="show" id="Lui-60-c8Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3oI-Up-tFT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3106.4000000000001" y="796.55172413793105"/>
+        </scene>
+        <!--Post Detail View Controller-->
+        <scene sceneID="l0n-oL-DjO">
+            <objects>
+                <viewController storyboardIdentifier="postDetailFromProfile" id="gPC-pD-48s" customClass="PostDetailViewController" customModule="fakestagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="a1K-ol-gih">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="47N-cc-usl"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PuV-kb-39Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3999" y="797"/>
         </scene>
         <!--Timeline-->
         <scene sceneID="GU1-WE-kfL">

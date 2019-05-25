@@ -62,7 +62,6 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? ThumbnailCollectionViewCell else { return ThumbnailCollectionViewCell() }
-        //cell.backgroundColor = UIColor.red
         cell.post = posts[indexPath.row]
         return cell
         
@@ -83,6 +82,16 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let nextViewController = PostDetailViewController(nibName: "PostDetailViewController", bundle: nil)
+        
+        nextViewController.post = posts[indexPath.row]
+        
+        self.navigationController?.pushViewController(nextViewController, animated: true)
+        
     }
 
     

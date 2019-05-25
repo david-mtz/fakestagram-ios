@@ -10,21 +10,41 @@ import UIKit
 
 class PostDetailViewController: UIViewController {
 
+    @IBOutlet weak var authorView: PostAuthorView!
+    
+    @IBOutlet weak var imgView: UIImageView!
+    
+    @IBOutlet weak var commentLabel: UIButton!
+    
+    @IBOutlet weak var countLikes: UILabel!
+    
+    @IBOutlet weak var likeButton: UIButton!
+    
+    @IBOutlet weak var descriptionTextView: UITextView!
+    
+    public var post: Post?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setUpPost()
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
+    func setUpPost() {
+        
+        guard let post = post else { return }
+        
+        authorView.author = post.author
+        
+        authorView.locationName = post.location
+        
+        descriptionTextView.text = post.title
+        
+        imgView.getFromUrl(url: post.imageUrl)
+        
+        countLikes.text = ("\(post.likesCount) Likes")
+        
     }
-    */
+    
+
 
 }
