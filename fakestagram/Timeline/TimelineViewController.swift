@@ -39,6 +39,7 @@ class TimelineViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(didLikePost), name: .didLikePost, object: nil)
         
+//        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: ""), style: .done, target: self, action: #selector(takePhoto))
         
         // Do any additional setup after loading the view.
     }

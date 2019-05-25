@@ -12,7 +12,7 @@ class RestClient<T> where T: Codable {
     let client: Client
     let path: String
     typealias codableResponse = (T) -> Void
-    
+
     init(client: Client, path: String) {
         self.client = client
         self.path = path

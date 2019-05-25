@@ -15,14 +15,70 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
     
     let locationManager = CLLocationManager()
     var location: CLLocationCoordinate2D?
+    let pickerController = UIImagePickerController()
+    
+    @IBOutlet weak var postView: UIView!
+    
+    @IBOutlet weak var imageView: UIImageView!
+    
+    @IBOutlet weak var descriptionPostTextView: UITextView!
+    
+    @IBOutlet weak var uploadButton: UIButton!
+    
+    var post: Post? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpLocation()
+        setUpPickerController()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        setUpViewPost()
+    }
+    
+    func setUpViewPost() {
+        if (imageView.image != nil) {
+            postView.isHidden = false
+        } else {
+            postView.isHidden = true
+            presentAlertOption()
+        }
+    }
+    
+    func presentAlertOption() {
+        let alertMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        alertMenu.addAction(UIAlertAction(title: "Library", style: .default, handler: { (UIAlertAction) in
+            self.pickerController.sourceType = .photoLibrary
+            self.present(self.pickerController, animated: true, completion: nil)
+        }))
+        
+        alertMenu.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (UIAlertAction) in
+            self.pickerController.sourceType = .camera
+            self.present(self.pickerController, animated: true, completion: nil)
+        }))
+        
+        alertMenu.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (UIAlertAction) in
+            self.tabBarController?.selectedIndex = 0
+        }))
+        
+        self.present(alertMenu, animated: true, completion: nil)
+    }
+    
+    func successPost() {
+        let alertMenu = UIAlertController(title: nil, message: "Post published!", preferredStyle: .alert)
+        alertMenu.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (UIAlertAction) in
+            self.tabBarController?.selectedIndex = 0
+        }))
+        self.present(alertMenu, animated: true, completion: nil)
+    }
+    
+    func setUpLocation() {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,39 +92,47 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
         self.location = locationCoor
     }
 
-    @IBAction func uploadImage(_ sender: UIButton) {
-        guard let img = UIImage(named: "squirtle") else { return }
+    @IBAction func addPost(_ sender: UIButton) {
+    
+        guard let image = imageView?.image else {return}
         
-        var latitude: Double?
-        var longitude: Double?
-        
-        if let location = self.location {
-            latitude = location.latitude
-            longitude = location.longitude
-        }
-        
-        let payload = CreatePostBase64(title: "SFdsfdsf", imageData: img.toBase64()!, latitude: latitude, longitude: longitude)
+        let payload = CreatePostBase64(title: descriptionPostTextView.text, imageData: image.toBase64()!, latitude: location?.latitude, longitude: location?.longitude)
 
+            client.create(payload: payload) { (resp) in
+                print(resp)
+                self.imageView.image = nil
+                self.successPost()
+            }
 
-        client.create(payload: payload) { (resp) in
-            print(resp)
-        }
-        
-        
-        
     }
     
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+extension CameraViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func setUpPickerController() {
+        pickerController.delegate = self
+        pickerController.allowsEditing = true
+    }
+
+    // Photo selected
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        guard let imageGallery = info[.editedImage] as? UIImage
+            else { return }
+        
+        imageView.image = imageGallery
+        
+        picker.dismiss(animated: true, completion: nil)
+        
+    }
+    
+    // Cancel photo
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+}
+
+
+
