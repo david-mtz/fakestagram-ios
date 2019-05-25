@@ -28,7 +28,7 @@ class PostDetailViewController: UIViewController {
         super.viewDidLoad()
         setUpPost()
     }
-        
+    
     func setUpPost() {
         
         guard let post = post else { return }

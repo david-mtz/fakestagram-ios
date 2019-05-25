@@ -14,6 +14,13 @@ extension UIImageView {
     
     func getFromUrl(url: String?) {
         
+        let contentModeOriginal = contentMode
+        let backgroundOriginal = backgroundColor
+        
+        contentMode = .center
+        backgroundColor = UIColor.clear
+        image = UIImage(named:"sync-spinning")
+        self.startRotating()
         
         guard let urlstring = url, let url = URL(string: urlstring) else {
             return
@@ -23,18 +30,20 @@ extension UIImageView {
         let cache = ImageCache(filename: imageKey)
         
         if let img = cache.load() {
+            self.stopRotating()
+            contentMode = contentModeOriginal
             self.image = img
-            //print("Se cargo de cache")
             return
         }
         
         DispatchQueue.global(qos: .background).async {
             if let data = try? Data(contentsOf: url), let img = UIImage(data: data) {
                 DispatchQueue.main.async {
+                    self.stopRotating()
+                    self.contentMode = contentModeOriginal
                     self.image = img
                 }
                 _ = cache.save(image: img)
-                //print("Se salvo en cache")
             }
         }
 
