@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol showCommentViewDelegate {
+    func showView(post: Post, rowId: Int)
+}
+
 class PostCollectionViewCell: UICollectionViewCell {
+    
+    var delegate: showCommentViewDelegate?
     
     public var post: Post? {
         didSet {
@@ -54,5 +60,9 @@ class PostCollectionViewCell: UICollectionViewCell {
         self.post = likeClient.update()
     }
     
+    
+    @IBAction func commentView(_ sender: UIButton) {
+        delegate?.showView(post: post!, rowId: rowId!)
+    }
     
 }

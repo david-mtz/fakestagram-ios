@@ -20,7 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AccountRepo.shared.loadOrCreate { (account) in
             if let uuid = account.id {
                 _ = Secrets.uuid.set(value: uuid)
-                print(account)
             }
         }
         

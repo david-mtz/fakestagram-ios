@@ -24,4 +24,13 @@ struct Account: Codable {
         )
     }
     
+    func avatarURL() -> URL {
+        return Identicon(key: name).url()!
+    }
+    
+    func toAuthor() -> Author? {
+        guard let id = id else { return nil }
+        return Author(name: name, id: id)
+    }
+
 }

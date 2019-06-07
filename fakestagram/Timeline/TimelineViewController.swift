@@ -34,14 +34,12 @@ class TimelineViewController: UIViewController {
             self?.listPost = data
             self?.reloadData()
         }
-
+        
         refreshControl.addTarget(self, action: #selector(self.reloadData), for: UIControl.Event.valueChanged)
         
         NotificationCenter.default.addObserver(self, selector: #selector(didLikePost), name: .didLikePost, object: nil)
-        
-//        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: ""), style: .done, target: self, action: #selector(takePhoto))
-        
-        // Do any additional setup after loading the view.
+        NotificationCenter.default.addObserver(self, selector: #selector(didCommentPost), name: .didCommentPost, object: nil)
+
     }
     
     @objc func reloadData() {
@@ -54,15 +52,22 @@ class TimelineViewController: UIViewController {
         }
     }
 
-    
     @objc func didLikePost(notification: NSNotification) {
         guard let userInfo = notification.userInfo, let data = userInfo["post"] as? Data else {return}
         let json = try? JSONDecoder().decode(Post.self, from: data)
         guard let idPost = userInfo["row"] as? Int, let postUpdated = json else {return}
         listPost[idPost] = postUpdated
     }
+
+    @objc func didCommentPost(notification: NSNotification) {
+        guard let userInfo = notification.userInfo, let data = userInfo["post"] as? Data else {return}
+        let json = try? JSONDecoder().decode(Post.self, from: data)
+        guard let idPost = userInfo["row"] as? Int, let postUpdated = json else {return}
+        listPost[idPost] = postUpdated
+        postsCollectionView.reloadData()
+    }
     
-    
+
     func updateCollection() {
         postsCollectionView.reloadData()
     }
@@ -106,6 +111,8 @@ extension TimelineViewController: UICollectionViewDataSource, UICollectionViewDe
         
         cell.rowId = indexPath.row
         
+        cell.delegate = self
+        
         // Configure the cel
         return cell
 
@@ -128,5 +135,15 @@ extension TimelineViewController: UICollectionViewDataSourcePrefetching {
         if indexPath.row > upperLimit {
             loadNextPage()
         }
+    }
+}
+
+extension TimelineViewController: showCommentViewDelegate {
+    func showView(post: Post, rowId: Int) {
+        let nextViewController = CommentViewController(nibName: "CommentViewController", bundle: nil)
+        nextViewController.post = post
+        nextViewController.rowId = rowId
+        nextViewController.accountProfile = AccountRepo.shared.load()
+        self.navigationController?.pushViewController(nextViewController, animated: true)
     }
 }

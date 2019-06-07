@@ -23,6 +23,7 @@ extension UIImageView {
         self.startRotating()
         
         guard let urlstring = url, let url = URL(string: urlstring) else {
+            self.contentMode = contentModeOriginal
             return
         }
         
@@ -32,6 +33,7 @@ extension UIImageView {
         if let img = cache.load() {
             self.stopRotating()
             contentMode = contentModeOriginal
+            self.backgroundColor = backgroundOriginal
             self.image = img
             return
         }
@@ -41,6 +43,7 @@ extension UIImageView {
                 DispatchQueue.main.async {
                     self.stopRotating()
                     self.contentMode = contentModeOriginal
+                    self.backgroundColor = backgroundOriginal
                     self.image = img
                 }
                 _ = cache.save(image: img)
