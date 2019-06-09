@@ -20,9 +20,13 @@ class LikeUpdaterClient {
     
     init(post: Post, rowId: Int) {
         self.post = post
-        self.rowId = rowId
+        self.rowId? = rowId
     }
     
+    init(post: Post) {
+        self.post = post
+    }
+
     func update() -> Post {
         if !post.liked {
             return like()
@@ -61,7 +65,7 @@ class LikeUpdaterClient {
         post.likesCount += 1
         post.liked = true
         
-        sendNotification(post: post)
+        //sendNotification(post: post)
 
     }
     
@@ -74,7 +78,7 @@ class LikeUpdaterClient {
         post.likesCount -= 1
         post.liked = false
 
-        sendNotification(post: post)
+        //sendNotification(post: post)
 
     }
 

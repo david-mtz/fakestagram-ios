@@ -19,14 +19,14 @@ class ThumbnailCollectionViewCell: UICollectionViewCell {
     var post: Post? {
         didSet { updateImageView() }
     }
-    
+        
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(thumbnailUIImageView)
         thumbnailUIImageView.anchor(top: topAnchor, leading: leadingAnchor, trailing: trailingAnchor, bottom: bottomAnchor, padding: UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2))
         thumbnailUIImageView.backgroundColor =
             UIColor(red:0.95, green:0.95, blue:0.95, alpha:1.0)
-
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -36,7 +36,6 @@ class ThumbnailCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-    
     
     func updateImageView() {
         guard let post = self.post else { return }

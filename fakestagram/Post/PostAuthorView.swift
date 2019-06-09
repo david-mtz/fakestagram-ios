@@ -56,10 +56,8 @@ class PostAuthorView: UIView {
         addSubview(avatarView)
         
         avatarView.anchor(top: topAnchor, leading: leadingAnchor, trailing: nil, bottom: bottomAnchor, size: CGSize(width: 40, height: 0))
-        
-        avatarView.clipsToBounds = true
-        avatarView.layer.cornerRadius = 20
-        
+        avatarView.radius(20)
+
         addSubview(label)
         label.anchor(top: topAnchor, leading: avatarView.trailingAnchor, trailing: trailingAnchor, bottom: nil, padding: UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0), size: CGSize(width: 0, height: 20))
         
@@ -80,4 +78,5 @@ class PostAuthorView: UIView {
         guard let location = locationName else {return}
         locationLabel.text = location
     }
+        
 }

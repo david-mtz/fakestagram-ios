@@ -48,8 +48,8 @@ class CommentViewController: UIViewController {
         
         if let postId = post?.id {
             client = CommentClient(postId: postId)
-            client?.showList { (comments) in
-                self.comments = comments
+            client?.showList { [weak self] (comments) in
+                self?.comments = comments
             }
         }
         
@@ -67,12 +67,11 @@ class CommentViewController: UIViewController {
     @IBAction func sendCommentAction(_ sender: UIButton) {
         guard let textComment = commentTextView.text, textComment.count > 0 else { return }
         let newComment = Comment(id: nil, content: textComment, createdAt: "", updatedAt: "", author: nil)
-        client?.create(codable: newComment, success: { (new) in
-            self.comments.append(new)
-            self.post?.commentsCount += 1
-            guard let data = try? JSONEncoder().encode(self.post) else {return}
-            NotificationCenter.default.post(name: .didCommentPost, object: nil, userInfo: ["post": data as Any, "row": self.rowId as Any])
-            self.commentTextView.text = ""
+        client?.create(codable: newComment, success: { [weak self] (new) in
+            self?.comments.append(new)
+            self?.post?.commentsCount += 1
+            guard let data = try? JSONEncoder().encode(self?.post) else {return}
+            self?.commentTextView.text = ""
         })
     }
     

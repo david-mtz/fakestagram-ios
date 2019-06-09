@@ -29,14 +29,14 @@ class ProfileViewController: UIViewController {
     
     func setUpView() {
         
-        client.showProfile { (author) in
+        client.showProfile { [weak self] (author) in
             print(author)
-            self.postAuthorV?.author = author
+            self?.postAuthorV?.author = author
         }
         
-        client.showProfilePosts { (listPost) in
-            self.posts = listPost
-            self.previewCollectionView.reloadData()
+        client.showProfilePosts { [weak self] (listPost) in
+            self?.posts = listPost
+            self?.previewCollectionView.reloadData()
             print(listPost)
         }
         
@@ -89,6 +89,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         let nextViewController = PostDetailViewController(nibName: "PostDetailViewController", bundle: nil)
         
         nextViewController.post = posts[indexPath.row]
+        nextViewController.rowId = indexPath.row
         
         self.navigationController?.pushViewController(nextViewController, animated: true)
         

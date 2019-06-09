@@ -38,7 +38,6 @@ class TimelineViewController: UIViewController {
         refreshControl.addTarget(self, action: #selector(self.reloadData), for: UIControl.Event.valueChanged)
         
         NotificationCenter.default.addObserver(self, selector: #selector(didLikePost), name: .didLikePost, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(didCommentPost), name: .didCommentPost, object: nil)
 
     }
     
@@ -57,14 +56,6 @@ class TimelineViewController: UIViewController {
         let json = try? JSONDecoder().decode(Post.self, from: data)
         guard let idPost = userInfo["row"] as? Int, let postUpdated = json else {return}
         listPost[idPost] = postUpdated
-    }
-
-    @objc func didCommentPost(notification: NSNotification) {
-        guard let userInfo = notification.userInfo, let data = userInfo["post"] as? Data else {return}
-        let json = try? JSONDecoder().decode(Post.self, from: data)
-        guard let idPost = userInfo["row"] as? Int, let postUpdated = json else {return}
-        listPost[idPost] = postUpdated
-        postsCollectionView.reloadData()
     }
     
 
@@ -138,12 +129,13 @@ extension TimelineViewController: UICollectionViewDataSourcePrefetching {
     }
 }
 
-extension TimelineViewController: showCommentViewDelegate {
-    func showView(post: Post, rowId: Int) {
+extension TimelineViewController: PostViewDelegate {
+    func showCommentView(post: Post, rowId: Int) {
         let nextViewController = CommentViewController(nibName: "CommentViewController", bundle: nil)
         nextViewController.post = post
         nextViewController.rowId = rowId
         nextViewController.accountProfile = AccountRepo.shared.load()
         self.navigationController?.pushViewController(nextViewController, animated: true)
     }
+        
 }

@@ -23,6 +23,8 @@ class PostDetailViewController: UIViewController {
     @IBOutlet weak var descriptionTextView: UITextView!
     
     public var post: Post?
+
+    var rowId: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +47,22 @@ class PostDetailViewController: UIViewController {
         
     }
     
-
-
+    @IBAction func showCommentView(_ sender: UIButton) {
+        let nextViewController = CommentViewController(nibName: "CommentViewController", bundle: nil)
+        nextViewController.post = post
+        nextViewController.rowId = rowId
+        nextViewController.accountProfile = AccountRepo.shared.load()
+        self.navigationController?.pushViewController(nextViewController, animated: true)
+    }
+    
+    @IBAction func likeAction(_ sender: UIButton) {
+        guard var post = self.post else {return}
+        
+        let likeClient = LikeUpdaterClient(post: post)
+        self.post = likeClient.update()
+        
+        countLikes.text = ("\(self.post!.likesCount) Likes")
+        
+    }
+    
 }

@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol showCommentViewDelegate {
-    func showView(post: Post, rowId: Int)
+protocol PostViewDelegate {
+    func showCommentView(post: Post, rowId: Int)
 }
 
 class PostCollectionViewCell: UICollectionViewCell {
     
-    var delegate: showCommentViewDelegate?
+    var delegate: PostViewDelegate?
     
     public var post: Post? {
         didSet {
@@ -62,7 +62,8 @@ class PostCollectionViewCell: UICollectionViewCell {
     
     
     @IBAction func commentView(_ sender: UIButton) {
-        delegate?.showView(post: post!, rowId: rowId!)
+        guard let post = self.post, let rowId = self.rowId else { return }
+        delegate?.showCommentView(post: post, rowId: rowId)
     }
     
 }

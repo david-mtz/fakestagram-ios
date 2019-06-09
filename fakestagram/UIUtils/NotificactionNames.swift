@@ -12,6 +12,5 @@ import UIKit
 extension Notification.Name {
     
     static let didLikePost = Notification.Name("didLikePost")
-    static let didCommentPost = Notification.Name("didCommentPost")
 
 }
